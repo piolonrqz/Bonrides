@@ -1,0 +1,55 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="nav-left">
+
+            <ul>
+                <li><a href="{% url 'about' %}">ABOUT</a></li> <!-- Corrected closing tag -->
+                <li><a href="{% url 'vehicles' %}">VEHICLES</a></li>
+                <li><a href="{% url 'booking' %}">BOOKING</a></li>
+                <li><a href="{% url 'contacts' %}">CONTACTS</a></li>
+            </ul>
+        </div>
+        <div class="nav-center">
+            <ul>
+                <a href="{% url 'homepage' %}">bonrides</a>
+            </ul>
+            
+        </div>
+        <div class="nav-right">
+           <ul>
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+            <li><a href="{% url 'register' %}">SIGN UP</a></li>
+           </ul>
+        </div>
+    </nav>
+    
+    <div class="login">
+        <form action="" method="GET">
+            {% csrf_token %}
+            <div>
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+            </div>A
+            <div>
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div>
+                <button type="submit">LOGIN</button>
+            </div>
+        </form>
+    </div>    
+    
+</body>
+</html>

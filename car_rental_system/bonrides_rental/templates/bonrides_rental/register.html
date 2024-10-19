@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="{% static '/css/register.css' %}">
+    </head>    
+<body>
+    <nav>
+        <div class="nav-left">
+
+            <ul>
+                <li><a href="{% url 'about' %}">ABOUT</a></li>
+                <li><a href="{% url 'vehicles' %}">VEHICLES</a></li>
+                <li><a href="{% url 'booking' %}">BOOKING</a></li>
+                <li><a href="{% url 'contacts' %}">CONTACTS</a></li>
+            </ul>
+        </div>
+        <div class="nav-center">
+    
+                <a href="{% url 'homepage' %}">bonrides</a>
+            
+            
+        </div>
+        <div class="nav-right">
+           <ul>
+            <li><a href="{% url 'login' %}">LOGIN</a></li>
+            <li><a href="{% url 'register' %}">SIGN UP</a></li>
+           </ul>
+        </div>
+    </nav>
+
+    </div>
+        <div class="flex-container">
+            <div class="register">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <div>
+                    <p class="reg">Register</p>
+                    <label for="username"></label>
+                    <input type="text" id="username" name="username" required placeholder="Enter username">
+                </div>
+            </br>
+                </form>
+                <div>
+                    <label for="password"></label>
+                    <input type="password" id="password" name="password" required placeholder="Enter password">
+                </div>
+                <div>
+                    <label for="confirm_password"></label>
+                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm password">
+                </div>
+                <div>
+                    <button type="submit">Register</button>
+                </div>
+            </form>
+            </div>
+        </div>
+</body>
+</html>
