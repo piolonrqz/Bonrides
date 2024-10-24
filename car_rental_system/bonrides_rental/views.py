@@ -1,4 +1,7 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
+from .forms import CustomUserCreationForm # import from forms.py
+from django.contrib.auth import authenticate, login as auth_login, logout # auth
+from django.contrib import messages
 
 # Create your views here.
 def homepage(request):
@@ -21,10 +24,34 @@ def contacts(request):
     context = {}
     return render(request, 'bonrides_rental/contacts.html', context)
 
-def login(request):
+def user_login(request):
+    
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            auth_login(request, user)
+            return redirect('homepage')
+        else:
+            messages.info(request, 'Username or Password is incorrect')
     context = {}
     return render(request, 'bonrides_rental/login.html', context)
 
 def register(request):
-    context = {}
+    if request.method == 'POST':
+        form = CustomUserCreationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('login')
+    else:
+        form = CustomUserCreationForm()
+
+    context = {'form': form}
     return render(request, 'bonrides_rental/register.html', context)
+
+def user_logout(request):
+    logout(request)
+    return redirect('login')

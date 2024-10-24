@@ -1,24 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    /* background-color: #3B3B3F; */
-    background: url("{% static 'images/landing_page.jpg'}");
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    font-family: 'Khand', sans-serif;
 }
 nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 120px;
-    padding-left: 5%;
-    padding-right: 5%;
+    padding: 0 10 0 10px;
     font-weight: bold;
     font-family: 'Khand', sans-serif;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 .nav-left, .nav-right {
     display: flex;
     align-items: center;
     font-size: 24px;
-    font-family: 'Khand', sans-serif; 
 }
 
 .nav-center{
@@ -26,7 +29,7 @@ nav {
     align-items: center;
     font-size: 48px;
     color: white;
-    font-family: 'Khand', sans-serif;
+    margin-right: 120px;
 }
 nav ul {
     list-style: none;
@@ -40,6 +43,9 @@ nav ul li {
 nav ul li a {
     color: white;
     text-decoration: none;
+}
+nav ul li a:hover {
+    text-decoration: underline;
 }
 
 .flex-container{
@@ -103,7 +109,7 @@ nav ul li a {
 }
 
 
-.reg{
+.header{
     font-family: 'Khand', sans-serif;
     font-size: 36px;
     font-weight: bold;

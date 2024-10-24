@@ -1,10 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap');
+
 body {
     margin: 0;
     padding: 0;
-    background-color: #3B3B3F;
+    background-image: url('../images/background.jpg');
+    background-size: cover;
+    font-family: 'Khand', sans-serif;
 }
 nav {
-    background-color: #292929;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -12,12 +15,13 @@ nav {
     padding: 0 10 0 10px;
     font-weight: bold;
     font-family: 'Khand', sans-serif;
+    margin-left: 100px;
+    margin-right: 100px;
 }
 .nav-left, .nav-right {
     display: flex;
     align-items: center;
     font-size: 24px;
-    font-family: 'Khand', sans-serif;
 }
 
 .nav-center{
@@ -25,7 +29,7 @@ nav {
     align-items: center;
     font-size: 48px;
     color: white;
-    font-family: 'Khand', sans-serif;
+    margin-right: 120px;
 }
 nav ul {
     list-style: none;
@@ -42,16 +46,4 @@ nav ul li a {
 }
 nav ul li a:hover {
     text-decoration: underline;
-}
-.logo {
-    color: white;
-    font-size: 24px;
-    font-weight: bold;
-    margin-right: 50px;
-}
-
-h1 {
-    color: white;
-    font-size: 48px;
-    font-family: 'Khand', sans-serif; /* Corrected here */
 }
