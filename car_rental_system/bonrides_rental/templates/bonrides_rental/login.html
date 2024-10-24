@@ -31,7 +31,7 @@
     
     <div class="flex-container">
         <div class="login">
-            <form action="" method="POST">
+            <form action="" method="GET">
                 {% csrf_token %}
                 <div>
                     <p class="header">Login</p>
@@ -46,12 +46,11 @@
                     <button type="submit">LOGIN</button>
                 </div>
                 
-                <!-- Display error message below the button if there's any -->
                 <div>
                     {% if messages %}
                         <ul>
                             {% for message in messages %}
-                                <li style="color: red;">{{ message }}</li> <!-- Style as you prefer -->
+                                <li style="color: red;">{{ message }}</li>
                             {% endfor %}
                         </ul>
                     {% endif %}
