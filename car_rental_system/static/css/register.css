@@ -115,3 +115,21 @@ nav ul li a:hover {
     font-weight: bold;
     color: azure;
 }
+
+.alert {
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.alert-error {
+    background-color: #ffe6e6;
+    color: #ff0000;
+    border: 1px solid #ff0000;
+}
+
+.alert-success {
+    background-color: #e6ffe6;
+    color: #008000;
+    border: 1px solid #008000;
+}
