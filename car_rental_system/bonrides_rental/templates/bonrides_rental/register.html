@@ -4,16 +4,11 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Khand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="{% static '/css/register.css' %}">
     </head>    
 <body>
     <nav>
         <div class="nav-left">
-
             <ul>
                 <li><a href="{% url 'about' %}">ABOUT</a></li>
                 <li><a href="{% url 'vehicles' %}">VEHICLES</a></li>
@@ -22,10 +17,11 @@
             </ul>
         </div>
         <div class="nav-center">
-    
-                <a href="{% url 'homepage' %}">bonrides</a>
-            
-            
+            <ul>
+                <li>
+                    <a href="{% url 'homepage' %}">bonrides</a>
+                </li> 
+            </ul>
         </div>
         <div class="nav-right">
            <ul>
@@ -35,31 +31,44 @@
         </div>
     </nav>
 
-    </div>
-        <div class="flex-container">
-            <div class="register">
-            <form action="" method="POST">
+    <div class="flex-container">
+        <div class="register">
+            <form method="POST">
                 {% csrf_token %}
+                <p class="reg">Register</p>
+
+                {% if messages %}
+                    {% for message in messages %}
+                        <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endif %}
+
+                {% if form.errors %}
+                    {% for field in form %}
+                        {% for error in field.errors %}
+                            <div class="alert alert-danger">
+                                {{ error }}
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                {% endif %}
+
                 <div>
-                    <p class="reg">Register</p>
-                    <label for="username"></label>
-                    <input type="text" id="username" name="username" required placeholder="Enter username">
+                    {{ form.username }}
                 </div>
-            </br>
-                </form>
                 <div>
-                    <label for="password"></label>
-                    <input type="password" id="password" name="password" required placeholder="Enter password">
+                    {{ form.password1 }}
                 </div>
                 <div>
-                    <label for="confirm_password"></label>
-                    <input type="password" id="confirm_password" name="confirm_password" required placeholder="Confirm password">
+                    {{ form.password2 }}
                 </div>
                 <div>
                     <button type="submit">Register</button>
                 </div>
             </form>
-            </div>
         </div>
+    </div>
 </body>
 </html>

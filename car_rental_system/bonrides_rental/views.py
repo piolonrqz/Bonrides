@@ -1,5 +1,6 @@
 from django.shortcuts import redirect, render
 from .forms import CustomUserCreationForm # import from forms.py
+from .forms import RegisterForm
 from django.contrib.auth import authenticate, login as auth_login, logout # auth
 from django.contrib import messages
 
@@ -40,14 +41,15 @@ def user_login(request):
     context = {}
     return render(request, 'bonrides_rental/login.html', context)
 
+
 def register(request):
     if request.method == 'POST':
-        form = CustomUserCreationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
             return redirect('login')
     else:
-        form = CustomUserCreationForm()
+        form = RegisterForm()
 
     context = {'form': form}
     return render(request, 'bonrides_rental/register.html', context)
