@@ -22,10 +22,15 @@
             </ul>
         </div>
         <div class="nav-right">
-           <ul>
-            <li><a href="{% url 'login' %}">LOGIN</a></li>
-            <li><a href="{% url 'register' %}">SIGN UP</a></li>
-           </ul>
+            <ul>
+                {% if user.is_authenticated %}
+                    <li class = "greeting">Hello, {{user}}</li>
+                    <li><a href="{% url 'logout' %}">LOGOUT</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">LOGIN</a></li>
+                    <li><a href="{% url 'register' %}">SIGN UP</a></li>
+                {% endif %}
+            </ul>
         </div>
     </nav>
 

@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .forms import CustomUserCreationForm # import from forms.py
-from django.contrib.auth import authenticate, login as auth_login, logout # auth
+from django.contrib.auth import authenticate, login as auth_login # auth
+from django.contrib.auth import logout as auth_logout # logout
 from django.contrib import messages
 
 # Create your views here.
@@ -53,5 +54,5 @@ def register(request):
     return render(request, 'bonrides_rental/register.html', context)
 
 def user_logout(request):
-    logout(request)
+    auth_logout(request)
     return redirect('login')
